@@ -1,0 +1,409 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>helloworld · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="theme.html" />
+    
+    
+    <link rel="prev" href="question.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="starter.html">
+            
+                <a href="starter.html">
+            
+                    
+                    开发环境准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="question.html">
+            
+                <a href="question.html">
+            
+                    
+                    可能遇到的问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="helloworld.html">
+            
+                <a href="helloworld.html">
+            
+                    
+                    helloworld
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="theme.html">
+            
+                <a href="theme.html">
+            
+                    
+                    ios主题和android主题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="router.html">
+            
+                <a href="router.html">
+            
+                    
+                    路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >helloworld</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="helloworld">helloworld</h1>
+<p>&#x4E3B;&#x5165;&#x53E3;&#x51FD;&#x6570;&#x8FD0;&#x884C;runApp&#x65B9;&#x6CD5;</p>
+<p>&#x6839;&#x8282;&#x70B9;widget&#x4E3A;MaterialApp (&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x7684;&#x6839;&#x8282;&#x70B9;&#x662F;WidgetsApp)</p>
+<pre><code class="lang-dart"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;package:flutter/material.dart&apos;</span>;
+
+<span class="hljs-keyword">void</span> main() =&gt; runApp(MyApp());
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatelessWidget</span> </span>{
+  <span class="hljs-comment">// This widget is the root of your application.</span>
+  <span class="hljs-meta">@override</span>
+  Widget build(BuildContext context) {
+    <span class="hljs-keyword">return</span> MaterialApp(
+      title: <span class="hljs-string">&apos;Flutter Demo&apos;</span>,
+      theme: ThemeData(
+        <span class="hljs-comment">// This is the theme of your application.</span>
+        <span class="hljs-comment">//</span>
+        <span class="hljs-comment">// Try running your application with &quot;flutter run&quot;. You&apos;ll see the</span>
+        <span class="hljs-comment">// application has a blue toolbar. Then, without quitting the app, try</span>
+        <span class="hljs-comment">// changing the primarySwatch below to Colors.green and then invoke</span>
+        <span class="hljs-comment">// &quot;hot reload&quot; (press &quot;r&quot; in the console where you ran &quot;flutter run&quot;,</span>
+        <span class="hljs-comment">// or simply save your changes to &quot;hot reload&quot; in a Flutter IDE).</span>
+        <span class="hljs-comment">// Notice that the counter didn&apos;t reset back to zero; the application</span>
+        <span class="hljs-comment">// is not restarted.</span>
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(title: <span class="hljs-string">&apos;Flutter Demo Home Page&apos;</span>),
+    );
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyHomePage</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatefulWidget</span> </span>{
+  MyHomePage({Key key, <span class="hljs-keyword">this</span>.title}) : <span class="hljs-keyword">super</span>(key: key);
+
+  <span class="hljs-comment">// This widget is the home page of your application. It is stateful, meaning</span>
+  <span class="hljs-comment">// that it has a State object (defined below) that contains fields that affect</span>
+  <span class="hljs-comment">// how it looks.</span>
+
+  <span class="hljs-comment">// This class is the configuration for the state. It holds the values (in this</span>
+  <span class="hljs-comment">// case the title) provided by the parent (in this case the App widget) and</span>
+  <span class="hljs-comment">// used by the build method of the State. Fields in a Widget subclass are</span>
+  <span class="hljs-comment">// always marked &quot;final&quot;.</span>
+
+  <span class="hljs-keyword">final</span> <span class="hljs-built_in">String</span> title;
+
+  <span class="hljs-meta">@override</span>
+  _MyHomePageState createState() =&gt; _MyHomePageState();
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">_MyHomePageState</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">State</span>&lt;<span class="hljs-title">MyHomePage</span>&gt; </span>{
+  <span class="hljs-built_in">int</span> _counter = <span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">void</span> _incrementCounter() {
+    setState(() {
+      <span class="hljs-comment">// This call to setState tells the Flutter framework that something has</span>
+      <span class="hljs-comment">// changed in this State, which causes it to rerun the build method below</span>
+      <span class="hljs-comment">// so that the display can reflect the updated values. If we changed</span>
+      <span class="hljs-comment">// _counter without calling setState(), then the build method would not be</span>
+      <span class="hljs-comment">// called again, and so nothing would appear to happen.</span>
+      _counter++;
+    });
+  }
+
+  <span class="hljs-meta">@override</span>
+  Widget build(BuildContext context) {
+    <span class="hljs-comment">// This method is rerun every time setState is called, for instance as done</span>
+    <span class="hljs-comment">// by the _incrementCounter method above.</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// The Flutter framework has been optimized to make rerunning build methods</span>
+    <span class="hljs-comment">// fast, so that you can just rebuild anything that needs updating rather</span>
+    <span class="hljs-comment">// than having to individually change instances of widgets.</span>
+    <span class="hljs-keyword">return</span> Scaffold(
+      appBar: AppBar(
+        <span class="hljs-comment">// Here we take the value from the MyHomePage object that was created by</span>
+        <span class="hljs-comment">// the App.build method, and use it to set our appbar title.</span>
+        title: Text(widget.title),
+      ),
+      body: Center(
+        <span class="hljs-comment">// Center is a layout widget. It takes a single child and positions it</span>
+        <span class="hljs-comment">// in the middle of the parent.</span>
+        child: Column(
+          <span class="hljs-comment">// Column is also layout widget. It takes a list of children and</span>
+          <span class="hljs-comment">// arranges them vertically. By default, it sizes itself to fit its</span>
+          <span class="hljs-comment">// children horizontally, and tries to be as tall as its parent.</span>
+          <span class="hljs-comment">//</span>
+          <span class="hljs-comment">// Invoke &quot;debug painting&quot; (press &quot;p&quot; in the console, choose the</span>
+          <span class="hljs-comment">// &quot;Toggle Debug Paint&quot; action from the Flutter Inspector in Android</span>
+          <span class="hljs-comment">// Studio, or the &quot;Toggle Debug Paint&quot; command in Visual Studio Code)</span>
+          <span class="hljs-comment">// to see the wireframe for each widget.</span>
+          <span class="hljs-comment">//</span>
+          <span class="hljs-comment">// Column has various properties to control how it sizes itself and</span>
+          <span class="hljs-comment">// how it positions its children. Here we use mainAxisAlignment to</span>
+          <span class="hljs-comment">// center the children vertically; the main axis here is the vertical</span>
+          <span class="hljs-comment">// axis because Columns are vertical (the cross axis would be</span>
+          <span class="hljs-comment">// horizontal).</span>
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: &lt;Widget&gt;[
+            Text(
+              <span class="hljs-string">&apos;You have pushed the button this many times:&apos;</span>,
+            ),
+            Text(
+              <span class="hljs-string">&apos;$_counter&apos;</span>,
+              style: Theme.of(context).textTheme.display1,
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: <span class="hljs-string">&apos;Increment&apos;</span>,
+        child: Icon(Icons.add),
+      ), <span class="hljs-comment">// This trailing comma makes auto-formatting nicer for build methods.</span>
+    );
+  }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="question.html" class="navigation navigation-prev " aria-label="Previous page: 可能遇到的问题">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="theme.html" class="navigation navigation-next " aria-label="Next page: ios主题和android主题">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"helloworld","level":"1.4","depth":1,"next":{"title":"ios主题和android主题","level":"1.5","depth":1,"path":"md/theme.md","ref":"./md/theme.md","articles":[]},"previous":{"title":"可能遇到的问题","level":"1.3","depth":1,"path":"md/question.md","ref":"./md/question.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/helloworld.md","mtime":"2019-04-14T14:28:14.969Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-14T14:28:48.277Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
