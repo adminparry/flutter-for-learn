@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>路由 · GitBook</title>
+        <title>Semantics · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ListView.html" />
+    <link rel="next" href="Align.html" />
     
     
-    <link rel="prev" href="theme.html" />
+    <link rel="prev" href="CustomPaint.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.5" data-path="router.html">
+        <li class="chapter " data-level="3.5" data-path="router.html">
             
                 <a href="router.html">
             
@@ -739,7 +739,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.6.2" data-path="Semantics.html">
+        <li class="chapter active" data-level="4.1.6.2" data-path="Semantics.html">
             
                 <a href="Semantics.html">
             
@@ -844,7 +844,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >路由</a>
+        <a href=".." >Semantics</a>
     </h1>
 </div>
 
@@ -859,7 +859,116 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="semantics">Semantics</h1>
+<p>&#x7EE7;&#x627F;</p>
+<pre><code class="lang-dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Semantics</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SingleChildRenderObjectWidget</span>
+</span></code></pre>
+<p>&#x6784;&#x9020;</p>
+<pre><code class="lang-dart">Semantics({
+    Key key,
+    Widget child,
+    <span class="hljs-built_in">bool</span> container = <span class="hljs-keyword">false</span>,
+    <span class="hljs-built_in">bool</span> explicitChildNodes = <span class="hljs-keyword">false</span>,
+    <span class="hljs-built_in">bool</span> excludeSemantics = <span class="hljs-keyword">false</span>,
+    <span class="hljs-built_in">bool</span> enabled,
+    <span class="hljs-built_in">bool</span> checked,
+    <span class="hljs-built_in">bool</span> selected,
+    <span class="hljs-built_in">bool</span> toggled,
+    <span class="hljs-built_in">bool</span> button,
+    <span class="hljs-built_in">bool</span> header,
+    <span class="hljs-built_in">bool</span> textField,
+    <span class="hljs-built_in">bool</span> focused,
+    <span class="hljs-built_in">bool</span> inMutuallyExclusiveGroup,
+    <span class="hljs-built_in">bool</span> obscured,
+    <span class="hljs-built_in">bool</span> scopesRoute,
+    <span class="hljs-built_in">bool</span> namesRoute,
+    <span class="hljs-built_in">bool</span> hidden,
+    <span class="hljs-built_in">bool</span> image,
+    <span class="hljs-built_in">bool</span> liveRegion,
+    <span class="hljs-built_in">String</span> label,
+    <span class="hljs-built_in">String</span> value,
+    <span class="hljs-built_in">String</span> increasedValue,
+    <span class="hljs-built_in">String</span> decreasedValue,
+    <span class="hljs-built_in">String</span> hint,
+    <span class="hljs-built_in">String</span> onTapHint,
+    <span class="hljs-built_in">String</span> onLongPressHint,
+    TextDirection textDirection,
+    SemanticsSortKey sortKey,
+    VoidCallback onTap,
+    VoidCallback onLongPress,
+    VoidCallback onScrollLeft,
+    VoidCallback onScrollRight,
+    VoidCallback onScrollUp,
+    VoidCallback onScrollDown,
+    VoidCallback onIncrease,
+    VoidCallback onDecrease,
+    VoidCallback onCopy,
+    VoidCallback onCut,
+    VoidCallback onPaste,
+    VoidCallback onDismiss,
+    MoveCursorHandler onMoveCursorForwardByCharacter,
+    MoveCursorHandler onMoveCursorBackwardByCharacter,
+    SetSelectionHandler onSetSelection,
+    VoidCallback onDidGainAccessibilityFocus,
+    VoidCallback onDidLoseAccessibilityFocus,
+    <span class="hljs-built_in">Map</span>&lt;CustomSemanticsAction, VoidCallback&gt; customSemanticsActions,
+  }) : <span class="hljs-keyword">this</span>.fromProperties(
+    key: key,
+    child: child,
+    container: container,
+    explicitChildNodes: explicitChildNodes,
+    excludeSemantics: excludeSemantics,
+    properties: SemanticsProperties(
+      enabled: enabled,
+      checked: checked,
+      toggled: toggled,
+      selected: selected,
+      button: button,
+      header: header,
+      textField: textField,
+      focused: focused,
+      inMutuallyExclusiveGroup: inMutuallyExclusiveGroup,
+      obscured: obscured,
+      scopesRoute: scopesRoute,
+      namesRoute: namesRoute,
+      hidden: hidden,
+      image: image,
+      liveRegion: liveRegion,
+      label: label,
+      value: value,
+      increasedValue: increasedValue,
+      decreasedValue: decreasedValue,
+      hint: hint,
+      textDirection: textDirection,
+      sortKey: sortKey,
+      onTap: onTap,
+      onLongPress: onLongPress,
+      onScrollLeft: onScrollLeft,
+      onScrollRight: onScrollRight,
+      onScrollUp: onScrollUp,
+      onScrollDown: onScrollDown,
+      onIncrease: onIncrease,
+      onDecrease: onDecrease,
+      onCopy: onCopy,
+      onCut: onCut,
+      onPaste: onPaste,
+      onMoveCursorForwardByCharacter: onMoveCursorForwardByCharacter,
+      onMoveCursorBackwardByCharacter: onMoveCursorBackwardByCharacter,
+      onDidGainAccessibilityFocus: onDidGainAccessibilityFocus,
+      onDidLoseAccessibilityFocus: onDidLoseAccessibilityFocus,
+      onDismiss: onDismiss,
+      onSetSelection: onSetSelection,
+      customSemanticsActions: customSemanticsActions,
+      hintOverrides: onTapHint != <span class="hljs-keyword">null</span> || onLongPressHint != <span class="hljs-keyword">null</span> ?
+        SemanticsHintOverrides(
+          onTapHint: onTapHint,
+          onLongPressHint: onLongPressHint,
+        ) : <span class="hljs-keyword">null</span>,
+    ),
+  );
+</code></pre>
+<p>&#x5173;&#x8054;</p>
+
                                 
                                 </section>
                             
@@ -886,12 +995,12 @@
 
             
                 
-                <a href="theme.html" class="navigation navigation-prev " aria-label="Previous page: ios主题和android主题">
+                <a href="CustomPaint.html" class="navigation navigation-prev " aria-label="Previous page: CustomPaint">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ListView.html" class="navigation navigation-next " aria-label="Next page: ListView列表">
+                <a href="Align.html" class="navigation navigation-next " aria-label="Next page: Align">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -902,7 +1011,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"路由","level":"3.5","depth":1,"next":{"title":"ListView列表","level":"3.6","depth":1,"path":"md/ListView.md","ref":"./md/ListView.md","articles":[]},"previous":{"title":"ios主题和android主题","level":"3.4","depth":1,"path":"md/theme.md","ref":"./md/theme.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/router.md","mtime":"2019-04-11T06:27:11.890Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Semantics","level":"4.1.6.2","depth":3,"next":{"title":"Align","level":"4.1.6.3","depth":3,"path":"md/Align.md","ref":"./md/Align.md","articles":[]},"previous":{"title":"CustomPaint","level":"4.1.6.1","depth":3,"path":"md/CustomPaint.md","ref":"./md/CustomPaint.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/Semantics.md","mtime":"2019-04-25T07:06:28.349Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

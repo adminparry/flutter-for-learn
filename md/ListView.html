@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>路由 · GitBook</title>
+        <title>ListView列表 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ListView.html" />
+    <link rel="next" href="TabBar.html" />
     
     
-    <link rel="prev" href="theme.html" />
+    <link rel="prev" href="router.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.5" data-path="router.html">
+        <li class="chapter " data-level="3.5" data-path="router.html">
             
                 <a href="router.html">
             
@@ -220,7 +220,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.6" data-path="ListView.html">
+        <li class="chapter active" data-level="3.6" data-path="ListView.html">
             
                 <a href="ListView.html">
             
@@ -844,7 +844,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >路由</a>
+        <a href=".." >ListView列表</a>
     </h1>
 </div>
 
@@ -859,7 +859,95 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="listview">ListView</h1>
+<pre><code class="lang-dart"><span class="hljs-keyword">import</span> <span class="hljs-string">&apos;package:flutter/foundation.dart&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;package:flutter/material.dart&apos;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;package:flutter/cupertino.dart&apos;</span>;
+
+<span class="hljs-keyword">void</span> main() =&gt; runApp(<span class="hljs-keyword">new</span> MyApp());
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatelessWidget</span> </span>{
+  <span class="hljs-meta">@override</span>
+  Widget build(BuildContext context) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MaterialApp(
+      title: <span class="hljs-string">&apos;Flutter Demo&apos;</span>,
+      home: <span class="hljs-keyword">new</span> TodoScreen(
+          todos: <span class="hljs-keyword">new</span> <span class="hljs-built_in">List</span>.generate(<span class="hljs-number">200</span>, (i){
+                <span class="hljs-built_in">int</span> index = i + <span class="hljs-number">1</span>;
+
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Todo(
+                  <span class="hljs-string">&apos;&#x6211;&#x662F;&#x7B2C; $index  &#x9879;&#x6807;&#x9898;&apos;</span>,
+                  <span class="hljs-string">&apos;&#x6211;&#x662F;&#x5185;&#x5BB9; $index&apos;</span>,
+                );
+          }
+          )
+      ),
+    );
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Todo</span> </span>{
+  <span class="hljs-keyword">final</span> <span class="hljs-built_in">String</span> title;
+  <span class="hljs-keyword">final</span> <span class="hljs-built_in">String</span> description;
+
+  Todo(<span class="hljs-keyword">this</span>.title, <span class="hljs-keyword">this</span>.description);
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoScreen</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatelessWidget</span> </span>{
+  <span class="hljs-keyword">final</span> <span class="hljs-built_in">List</span>&lt;Todo&gt; todos;
+
+  TodoScreen({Key key, <span class="hljs-meta">@required</span> <span class="hljs-keyword">this</span>.todos}) : <span class="hljs-keyword">super</span>(key: key);
+
+  <span class="hljs-keyword">void</span> onItemTapHandler(BuildContext context, index){
+    Navigator.push(
+      context, <span class="hljs-keyword">new</span> MaterialPageRoute(
+      builder: (context) =&gt; <span class="hljs-keyword">new</span> DetailScreen(todo: todos[index]),
+    ),);
+  }
+  <span class="hljs-meta">@override</span>
+  Widget build(BuildContext context) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Scaffold(
+      appBar: <span class="hljs-keyword">new</span> AppBar(
+        title: <span class="hljs-keyword">new</span> Text(<span class="hljs-string">&apos;&#x7B2C;&#x4E00;&#x4E2A;&#x9875;&#x9762;&apos;</span>),
+      ),
+      body: CupertinoScrollbar(child: <span class="hljs-keyword">new</span> ListView.builder(
+          itemCount: todos.length,
+          itemBuilder: (context, index) {
+
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ListTile(
+              title: <span class="hljs-keyword">new</span> Text(todos[index].title),
+              subtitle: <span class="hljs-keyword">new</span> Text(todos[index].description),
+              onTap: (){
+                onItemTapHandler(context,index);
+              },
+            );
+          }))
+
+    );
+  }
+}
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DetailScreen</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatelessWidget</span> </span>{
+  <span class="hljs-keyword">final</span> Todo todo;
+
+  DetailScreen({Key key, <span class="hljs-meta">@required</span> <span class="hljs-keyword">this</span>.todo}) : <span class="hljs-keyword">super</span>(key: key);
+
+  <span class="hljs-meta">@override</span>
+  Widget build(BuildContext context) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Scaffold(
+      appBar: <span class="hljs-keyword">new</span> AppBar(
+        title: <span class="hljs-keyword">new</span> Text(<span class="hljs-string">&quot;<span class="hljs-subst">${todo.title}</span>&quot;</span>),
+      ),
+      body: <span class="hljs-keyword">new</span> Padding(
+        padding: <span class="hljs-keyword">new</span> EdgeInsets.all(<span class="hljs-number">16.0</span>),
+        child: <span class="hljs-keyword">new</span> Text(<span class="hljs-string">&apos;<span class="hljs-subst">${todo.description}</span>&apos;</span>),
+      ),
+    );
+  }
+}
+</code></pre>
+<h2 id="listview-&#x5D4C;&#x5957;&#x95EE;&#x9898;">ListView &#x5D4C;&#x5957;&#x95EE;&#x9898;</h2>
+
                                 
                                 </section>
                             
@@ -886,12 +974,12 @@
 
             
                 
-                <a href="theme.html" class="navigation navigation-prev " aria-label="Previous page: ios主题和android主题">
+                <a href="router.html" class="navigation navigation-prev " aria-label="Previous page: 路由">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ListView.html" class="navigation navigation-next " aria-label="Next page: ListView列表">
+                <a href="TabBar.html" class="navigation navigation-next " aria-label="Next page: TabBar选项卡">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -902,7 +990,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"路由","level":"3.5","depth":1,"next":{"title":"ListView列表","level":"3.6","depth":1,"path":"md/ListView.md","ref":"./md/ListView.md","articles":[]},"previous":{"title":"ios主题和android主题","level":"3.4","depth":1,"path":"md/theme.md","ref":"./md/theme.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/router.md","mtime":"2019-04-11T06:27:11.890Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ListView列表","level":"3.6","depth":1,"next":{"title":"TabBar选项卡","level":"3.7","depth":1,"path":"md/TabBar.md","ref":"./md/TabBar.md","articles":[]},"previous":{"title":"路由","level":"3.5","depth":1,"path":"md/router.md","ref":"./md/router.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/ListView.md","mtime":"2019-04-16T06:08:53.454Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

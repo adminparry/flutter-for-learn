@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>路由 · GitBook</title>
+        <title>WidgetsApp · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ListView.html" />
+    <link rel="next" href="Localizations.html" />
     
     
-    <link rel="prev" href="theme.html" />
+    <link rel="prev" href="StatefulWidget.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.5" data-path="router.html">
+        <li class="chapter " data-level="3.5" data-path="router.html">
             
                 <a href="router.html">
             
@@ -604,7 +604,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1.3.1" data-path="WidgetsApp.html">
+        <li class="chapter active" data-level="4.1.3.1" data-path="WidgetsApp.html">
             
                 <a href="WidgetsApp.html">
             
@@ -844,7 +844,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >路由</a>
+        <a href=".." >WidgetsApp</a>
     </h1>
 </div>
 
@@ -859,7 +859,103 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="widgetsappmd">WidgetsApp.md</h1>
+<p>&#x7EE7;&#x627F;</p>
+<pre><code class="lang-dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WidgetsApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatefulWidget</span>
+</span></code></pre>
+<p>&#x6784;&#x9020;</p>
+<pre><code class="lang-dart">WidgetsApp({ <span class="hljs-comment">// can&apos;t be const because the asserts use methods on Iterable :-(</span>
+    Key key,
+    <span class="hljs-keyword">this</span>.navigatorKey,
+    <span class="hljs-keyword">this</span>.onGenerateRoute,
+    <span class="hljs-keyword">this</span>.onUnknownRoute,
+    <span class="hljs-keyword">this</span>.navigatorObservers = <span class="hljs-keyword">const</span> &lt;NavigatorObserver&gt;[],
+    <span class="hljs-keyword">this</span>.initialRoute,
+    <span class="hljs-keyword">this</span>.pageRouteBuilder,
+    <span class="hljs-keyword">this</span>.home,
+    <span class="hljs-keyword">this</span>.routes = <span class="hljs-keyword">const</span> &lt;<span class="hljs-built_in">String</span>, WidgetBuilder&gt;{},
+    <span class="hljs-keyword">this</span>.builder,
+    <span class="hljs-keyword">this</span>.title = <span class="hljs-string">&apos;&apos;</span>,
+    <span class="hljs-keyword">this</span>.onGenerateTitle,
+    <span class="hljs-keyword">this</span>.textStyle,
+    <span class="hljs-meta">@required</span> <span class="hljs-keyword">this</span>.color,
+    <span class="hljs-keyword">this</span>.locale,
+    <span class="hljs-keyword">this</span>.localizationsDelegates,
+    <span class="hljs-keyword">this</span>.localeListResolutionCallback,
+    <span class="hljs-keyword">this</span>.localeResolutionCallback,
+    <span class="hljs-keyword">this</span>.supportedLocales = <span class="hljs-keyword">const</span> &lt;Locale&gt;[Locale(<span class="hljs-string">&apos;en&apos;</span>, <span class="hljs-string">&apos;US&apos;</span>)],
+    <span class="hljs-keyword">this</span>.showPerformanceOverlay = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.checkerboardRasterCacheImages = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.checkerboardOffscreenLayers = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.showSemanticsDebugger = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.debugShowWidgetInspector = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.debugShowCheckedModeBanner = <span class="hljs-keyword">true</span>,
+    <span class="hljs-keyword">this</span>.inspectorSelectButtonBuilder,
+  }) : <span class="hljs-keyword">assert</span>(navigatorObservers != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(routes != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(
+         home == <span class="hljs-keyword">null</span> ||
+         !routes.containsKey(Navigator.defaultRouteName),
+         <span class="hljs-string">&apos;If the home property is specified, the routes table &apos;</span>
+         <span class="hljs-string">&apos;cannot include an entry for &quot;/&quot;, since it would be redundant.&apos;</span>
+       ),
+       <span class="hljs-keyword">assert</span>(
+         builder != <span class="hljs-keyword">null</span> ||
+         home != <span class="hljs-keyword">null</span> ||
+         routes.containsKey(Navigator.defaultRouteName) ||
+         onGenerateRoute != <span class="hljs-keyword">null</span> ||
+         onUnknownRoute != <span class="hljs-keyword">null</span>,
+         <span class="hljs-string">&apos;Either the home property must be specified, &apos;</span>
+         <span class="hljs-string">&apos;or the routes table must include an entry for &quot;/&quot;, &apos;</span>
+         <span class="hljs-string">&apos;or there must be on onGenerateRoute callback specified, &apos;</span>
+         <span class="hljs-string">&apos;or there must be an onUnknownRoute callback specified, &apos;</span>
+         <span class="hljs-string">&apos;or the builder property must be specified, &apos;</span>
+         <span class="hljs-string">&apos;because otherwise there is nothing to fall back on if the &apos;</span>
+         <span class="hljs-string">&apos;app is started with an intent that specifies an unknown route.&apos;</span>
+       ),
+       <span class="hljs-keyword">assert</span>(
+         (home != <span class="hljs-keyword">null</span> ||
+          routes.isNotEmpty ||
+          onGenerateRoute != <span class="hljs-keyword">null</span> ||
+          onUnknownRoute != <span class="hljs-keyword">null</span>)
+         ||
+         (builder != <span class="hljs-keyword">null</span> &amp;&amp;
+          navigatorKey == <span class="hljs-keyword">null</span> &amp;&amp;
+          initialRoute == <span class="hljs-keyword">null</span> &amp;&amp;
+          navigatorObservers.isEmpty),
+         <span class="hljs-string">&apos;If no route is provided using &apos;</span>
+         <span class="hljs-string">&apos;home, routes, onGenerateRoute, or onUnknownRoute, &apos;</span>
+         <span class="hljs-string">&apos;a non-null callback for the builder property must be provided, &apos;</span>
+         <span class="hljs-string">&apos;and the other navigator-related properties, &apos;</span>
+         <span class="hljs-string">&apos;navigatorKey, initialRoute, and navigatorObservers, &apos;</span>
+         <span class="hljs-string">&apos;must have their initial values &apos;</span>
+         <span class="hljs-string">&apos;(null, null, and the empty list, respectively).&apos;</span>
+       ),
+       <span class="hljs-keyword">assert</span>(
+         builder != <span class="hljs-keyword">null</span> ||
+         onGenerateRoute != <span class="hljs-keyword">null</span> ||
+         pageRouteBuilder != <span class="hljs-keyword">null</span>,
+         <span class="hljs-string">&apos;If neither builder nor onGenerateRoute are provided, the &apos;</span>
+         <span class="hljs-string">&apos;pageRouteBuilder must be specified so that the default handler &apos;</span>
+         <span class="hljs-string">&apos;will know what kind of PageRoute transition to build.&apos;</span>
+       ),
+       <span class="hljs-keyword">assert</span>(title != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(color != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(supportedLocales != <span class="hljs-keyword">null</span> &amp;&amp; supportedLocales.isNotEmpty),
+       <span class="hljs-keyword">assert</span>(showPerformanceOverlay != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(checkerboardRasterCacheImages != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(checkerboardOffscreenLayers != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(showSemanticsDebugger != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(debugShowCheckedModeBanner != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(debugShowWidgetInspector != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">super</span>(key: key);
+</code></pre>
+<p>&#x5173;&#x8054;</p>
+<p><a href="MediaQuery.html">MediaQuery</a></p>
+<p><a href="Localizations.html">Localizations</a></p>
+<p><a href="Builder.html">Builder</a></p>
+<p><a href="Title.html">Title</a></p>
+
                                 
                                 </section>
                             
@@ -886,12 +982,12 @@
 
             
                 
-                <a href="theme.html" class="navigation navigation-prev " aria-label="Previous page: ios主题和android主题">
+                <a href="StatefulWidget.html" class="navigation navigation-prev " aria-label="Previous page: StatefulWidget">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ListView.html" class="navigation navigation-next " aria-label="Next page: ListView列表">
+                <a href="Localizations.html" class="navigation navigation-next " aria-label="Next page: Localizations">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -902,7 +998,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"路由","level":"3.5","depth":1,"next":{"title":"ListView列表","level":"3.6","depth":1,"path":"md/ListView.md","ref":"./md/ListView.md","articles":[]},"previous":{"title":"ios主题和android主题","level":"3.4","depth":1,"path":"md/theme.md","ref":"./md/theme.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/router.md","mtime":"2019-04-11T06:27:11.890Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"WidgetsApp","level":"4.1.3.1","depth":3,"next":{"title":"Localizations","level":"4.1.3.2","depth":3,"path":"md/Localizations.md","ref":"./md/Localizations.md","articles":[]},"previous":{"title":"StatefulWidget","level":"4.1.3","depth":2,"path":"md/StatefulWidget.md","ref":"./md/StatefulWidget.md","articles":[{"title":"WidgetsApp","level":"4.1.3.1","depth":3,"path":"md/WidgetsApp.md","ref":"./md/WidgetsApp.md","articles":[]},{"title":"Localizations","level":"4.1.3.2","depth":3,"path":"md/Localizations.md","ref":"./md/Localizations.md","articles":[]},{"title":"InkResponse","level":"4.1.3.3","depth":3,"path":"md/InkResponse.md","ref":"./md/InkResponse.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/WidgetsApp.md","mtime":"2019-04-25T06:50:59.132Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>路由 · GitBook</title>
+        <title>TextSpan · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ListView.html" />
+    <link rel="next" href="widget.html" />
     
     
-    <link rel="prev" href="theme.html" />
+    <link rel="prev" href="DiagnosticableTree.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.5" data-path="router.html">
+        <li class="chapter " data-level="3.5" data-path="router.html">
             
                 <a href="router.html">
             
@@ -383,7 +383,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.16.1" data-path="TextSpan.html">
+        <li class="chapter active" data-level="3.16.1" data-path="TextSpan.html">
             
                 <a href="TextSpan.html">
             
@@ -844,7 +844,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >路由</a>
+        <a href=".." >TextSpan</a>
     </h1>
 </div>
 
@@ -859,7 +859,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="textspan">TextSpan</h1>
+<h5 id="&#x7EE7;&#x627F;">&#x7EE7;&#x627F;</h5>
+<pre><code class="lang-dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TextSpan</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">DiagnosticableTree</span>
+</span></code></pre>
+<h5 id="&#x6784;&#x9020;">&#x6784;&#x9020;</h5>
+<pre><code class="lang-dart"><span class="hljs-keyword">const</span> TextSpan({
+    <span class="hljs-keyword">this</span>.style,
+    <span class="hljs-keyword">this</span>.text,
+    <span class="hljs-keyword">this</span>.children,
+    <span class="hljs-keyword">this</span>.recognizer,
+    <span class="hljs-keyword">this</span>.semanticsLabel,
+  });
+</code></pre>
+
                                 
                                 </section>
                             
@@ -886,12 +899,12 @@
 
             
                 
-                <a href="theme.html" class="navigation navigation-prev " aria-label="Previous page: ios主题和android主题">
+                <a href="DiagnosticableTree.html" class="navigation navigation-prev " aria-label="Previous page: DiagnosticableTree">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ListView.html" class="navigation navigation-next " aria-label="Next page: ListView列表">
+                <a href="widget.html" class="navigation navigation-next " aria-label="Next page: widget">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -902,7 +915,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"路由","level":"3.5","depth":1,"next":{"title":"ListView列表","level":"3.6","depth":1,"path":"md/ListView.md","ref":"./md/ListView.md","articles":[]},"previous":{"title":"ios主题和android主题","level":"3.4","depth":1,"path":"md/theme.md","ref":"./md/theme.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/router.md","mtime":"2019-04-11T06:27:11.890Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"TextSpan","level":"3.16.1","depth":2,"next":{"title":"widget","level":"4.1","depth":1,"path":"md/widget.md","ref":"./md/widget.md","articles":[{"title":"StatelessWidget","level":"4.1.1","depth":2,"path":"md/StatelessWidget.md","ref":"./md/StatelessWidget.md","articles":[{"title":"GridPaper","level":"4.1.1.1","depth":3,"path":"md/GridPaper.md","ref":"./md/GridPaper.md","articles":[]},{"title":"Title","level":"4.1.1.2","depth":3,"path":"md/Title.md","ref":"./md/Title.md","articles":[]},{"title":"Builder","level":"4.1.1.3","depth":3,"path":"md/Builder.md","ref":"./md/Builder.md","articles":[]},{"title":"Theme","level":"4.1.1.4","depth":3,"path":"md/Theme.md","ref":"./md/Theme.md","articles":[]},{"title":"Icon","level":"4.1.1.5","depth":3,"path":"md/Icon.md","ref":"./md/Icon.md","articles":[]},{"title":"ListTile","level":"4.1.1.6","depth":3,"path":"md/ListTile.md","ref":"./md/ListTile.md","articles":[]},{"title":"SafeArea","level":"4.1.1.7","depth":3,"path":"md/SafeArea.md","ref":"./md/SafeArea.md","articles":[]}]},{"title":"InheritedWidget","level":"4.1.2","depth":2,"path":"md/InheritedWidget.md","ref":"./md/InheritedWidget.md","articles":[{"title":"ScrollConfiguration","level":"4.1.2.1","depth":3,"path":"md/ScrollConfiguration.md","ref":"./md/ScrollConfiguration.md","articles":[]},{"title":"Directionality","level":"4.1.2.2","depth":3,"path":"md/Directionality.md","ref":"./md/Directionality.md","articles":[]},{"title":"MediaQuery","level":"4.1.2.3","depth":3,"path":"md/MediaQuery.md","ref":"./md/MediaQuery.md","articles":[]}]},{"title":"StatefulWidget","level":"4.1.3","depth":2,"path":"md/StatefulWidget.md","ref":"./md/StatefulWidget.md","articles":[{"title":"WidgetsApp","level":"4.1.3.1","depth":3,"path":"md/WidgetsApp.md","ref":"./md/WidgetsApp.md","articles":[]},{"title":"Localizations","level":"4.1.3.2","depth":3,"path":"md/Localizations.md","ref":"./md/Localizations.md","articles":[]},{"title":"InkResponse","level":"4.1.3.3","depth":3,"path":"md/InkResponse.md","ref":"./md/InkResponse.md","articles":[]}]},{"title":"ImplicitlyAnimatedWidget","level":"4.1.4","depth":2,"path":"md/ImplicitlyAnimatedWidget.md","ref":"./md/ImplicitlyAnimatedWidget.md","articles":[{"title":"AnimatedTheme","level":"4.1.4.1","depth":3,"path":"md/AnimatedTheme.md","ref":"./md/AnimatedTheme.md","articles":[]}]},{"title":"LeafRenderObjectWidget","level":"4.1.5","depth":2,"path":"md/LeafRenderObjectWidget.md","ref":"./md/LeafRenderObjectWidget.md","articles":[{"title":"RichText","level":"4.1.5.1","depth":3,"path":"md/RichText.md","ref":"./md/RichText.md","articles":[]}]},{"title":"SingleChildRenderObjectWidget","level":"4.1.6","depth":2,"path":"md/SingleChildRenderObjectWidget.md","ref":"./md/SingleChildRenderObjectWidget.md","articles":[{"title":"CustomPaint","level":"4.1.6.1","depth":3,"path":"md/CustomPaint.md","ref":"./md/CustomPaint.md","articles":[]},{"title":"Semantics","level":"4.1.6.2","depth":3,"path":"md/Semantics.md","ref":"./md/Semantics.md","articles":[]},{"title":"Align","level":"4.1.6.3","depth":3,"path":"md/Align.md","ref":"./md/Align.md","articles":[]},{"title":"SizedBox","level":"4.1.6.4","depth":3,"path":"md/SizedBox.md","ref":"./md/SizedBox.md","articles":[]},{"title":"ExcludeSemantics","level":"4.1.6.5","depth":3,"path":"md/ExcludeSemantics.md","ref":"./md/ExcludeSemantics.md","articles":[]},{"title":"Transform","level":"4.1.6.6","depth":3,"path":"md/Transform.md","ref":"./md/Transform.md","articles":[]}]}]},"previous":{"title":"DiagnosticableTree","level":"3.16","depth":1,"path":"md/DiagnosticableTree.md","ref":"./md/DiagnosticableTree.md","articles":[{"title":"TextSpan","level":"3.16.1","depth":2,"path":"md/TextSpan.md","ref":"./md/TextSpan.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/TextSpan.md","mtime":"2019-04-25T08:28:24.473Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

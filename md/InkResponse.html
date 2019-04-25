@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>路由 · GitBook</title>
+        <title>InkResponse · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ListView.html" />
+    <link rel="next" href="ImplicitlyAnimatedWidget.html" />
     
     
-    <link rel="prev" href="theme.html" />
+    <link rel="prev" href="Localizations.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.5" data-path="router.html">
+        <li class="chapter " data-level="3.5" data-path="router.html">
             
                 <a href="router.html">
             
@@ -630,7 +630,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.1.3.3" data-path="InkResponse.html">
+        <li class="chapter active" data-level="4.1.3.3" data-path="InkResponse.html">
             
                 <a href="InkResponse.html">
             
@@ -844,7 +844,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >路由</a>
+        <a href=".." >InkResponse</a>
     </h1>
 </div>
 
@@ -859,7 +859,84 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="inkresponse">InkResponse</h1>
+<h5 id="&#x7EE7;&#x627F;">&#x7EE7;&#x627F;</h5>
+<pre><code class="lang-dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InkResponse</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatefulWidget</span>
+</span></code></pre>
+<h5 id="&#x6784;&#x9020;">&#x6784;&#x9020;</h5>
+<pre><code class="lang-dart"><span class="hljs-keyword">const</span> InkResponse({
+    Key key,
+    <span class="hljs-keyword">this</span>.child,
+    <span class="hljs-keyword">this</span>.onTap,
+    <span class="hljs-keyword">this</span>.onTapDown,
+    <span class="hljs-keyword">this</span>.onTapCancel,
+    <span class="hljs-keyword">this</span>.onDoubleTap,
+    <span class="hljs-keyword">this</span>.onLongPress,
+    <span class="hljs-keyword">this</span>.onHighlightChanged,
+    <span class="hljs-keyword">this</span>.containedInkWell = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.highlightShape = BoxShape.circle,
+    <span class="hljs-keyword">this</span>.radius,
+    <span class="hljs-keyword">this</span>.borderRadius,
+    <span class="hljs-keyword">this</span>.customBorder,
+    <span class="hljs-keyword">this</span>.highlightColor,
+    <span class="hljs-keyword">this</span>.splashColor,
+    <span class="hljs-keyword">this</span>.splashFactory,
+    <span class="hljs-keyword">this</span>.enableFeedback = <span class="hljs-keyword">true</span>,
+    <span class="hljs-keyword">this</span>.excludeFromSemantics = <span class="hljs-keyword">false</span>,
+  }) : <span class="hljs-keyword">assert</span>(containedInkWell != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(highlightShape != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(enableFeedback != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(excludeFromSemantics != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">super</span>(key: key);
+</code></pre>
+<h5 id="&#x5173;&#x8054;">&#x5173;&#x8054;</h5>
+<pre><code class="lang-dart"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InkWell</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">InkResponse</span> </span>{
+  <span class="hljs-comment"><span class="markdown">/// Creates </span>an<span class="markdown"> ink well.</span></span>
+  <span class="hljs-comment"><span class="markdown">///</span></span>
+  <span class="hljs-comment"><span class="markdown">/// Must have </span>an<span class="markdown"> ancestor [Material] widget in which to cause ink reactions.</span></span>
+  <span class="hljs-comment"><span class="markdown">///</span></span>
+  <span class="hljs-comment"><span class="markdown">/// The [enableFeedback] and [excludeFromSemantics] arguments must not be</span></span>
+  <span class="hljs-comment"><span class="markdown">/// null.</span></span>
+  <span class="hljs-keyword">const</span> InkWell({
+    Key key,
+    Widget child,
+    GestureTapCallback onTap,
+    GestureTapCallback onDoubleTap,
+    GestureLongPressCallback onLongPress,
+    GestureTapDownCallback onTapDown,
+    GestureTapCancelCallback onTapCancel,
+    ValueChanged&lt;<span class="hljs-built_in">bool</span>&gt; onHighlightChanged,
+    Color highlightColor,
+    Color splashColor,
+    InteractiveInkFeatureFactory splashFactory,
+    <span class="hljs-built_in">double</span> radius,
+    BorderRadius borderRadius,
+    ShapeBorder customBorder,
+    <span class="hljs-built_in">bool</span> enableFeedback = <span class="hljs-keyword">true</span>,
+    <span class="hljs-built_in">bool</span> excludeFromSemantics = <span class="hljs-keyword">false</span>,
+  }) : <span class="hljs-keyword">super</span>(
+    key: key,
+    child: child,
+    onTap: onTap,
+    onDoubleTap: onDoubleTap,
+    onLongPress: onLongPress,
+    onTapDown: onTapDown,
+    onTapCancel: onTapCancel,
+    onHighlightChanged: onHighlightChanged,
+    containedInkWell: <span class="hljs-keyword">true</span>,
+    highlightShape: BoxShape.rectangle,
+    highlightColor: highlightColor,
+    splashColor: splashColor,
+    splashFactory: splashFactory,
+    radius: radius,
+    borderRadius: borderRadius,
+    customBorder: customBorder,
+    enableFeedback: enableFeedback,
+    excludeFromSemantics: excludeFromSemantics,
+  );
+}
+</code></pre>
+
                                 
                                 </section>
                             
@@ -886,12 +963,12 @@
 
             
                 
-                <a href="theme.html" class="navigation navigation-prev " aria-label="Previous page: ios主题和android主题">
+                <a href="Localizations.html" class="navigation navigation-prev " aria-label="Previous page: Localizations">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ListView.html" class="navigation navigation-next " aria-label="Next page: ListView列表">
+                <a href="ImplicitlyAnimatedWidget.html" class="navigation navigation-next " aria-label="Next page: ImplicitlyAnimatedWidget">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -902,7 +979,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"路由","level":"3.5","depth":1,"next":{"title":"ListView列表","level":"3.6","depth":1,"path":"md/ListView.md","ref":"./md/ListView.md","articles":[]},"previous":{"title":"ios主题和android主题","level":"3.4","depth":1,"path":"md/theme.md","ref":"./md/theme.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/router.md","mtime":"2019-04-11T06:27:11.890Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"InkResponse","level":"4.1.3.3","depth":3,"next":{"title":"ImplicitlyAnimatedWidget","level":"4.1.4","depth":2,"path":"md/ImplicitlyAnimatedWidget.md","ref":"./md/ImplicitlyAnimatedWidget.md","articles":[{"title":"AnimatedTheme","level":"4.1.4.1","depth":3,"path":"md/AnimatedTheme.md","ref":"./md/AnimatedTheme.md","articles":[]}]},"previous":{"title":"Localizations","level":"4.1.3.2","depth":3,"path":"md/Localizations.md","ref":"./md/Localizations.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/InkResponse.md","mtime":"2019-04-25T08:41:33.778Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

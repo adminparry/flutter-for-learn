@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>路由 · GitBook</title>
+        <title>MaterialApp · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ListView.html" />
+    <link rel="next" href="basic_widget.html" />
     
     
-    <link rel="prev" href="theme.html" />
+    <link rel="prev" href="helloworld.html" />
     
 
     </head>
@@ -135,7 +135,7 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="MaterialApp.html">
+        <li class="chapter active" data-level="2.1" data-path="MaterialApp.html">
             
                 <a href="MaterialApp.html">
             
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.5" data-path="router.html">
+        <li class="chapter " data-level="3.5" data-path="router.html">
             
                 <a href="router.html">
             
@@ -844,7 +844,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >路由</a>
+        <a href=".." >MaterialApp</a>
     </h1>
 </div>
 
@@ -859,7 +859,154 @@
     
                                 <section class="normal markdown-section">
                                 
-                                
+                                <h1 id="materialapp">MaterialApp</h1>
+<p>&#x7EE7;&#x627F;&#x6027;</p>
+<pre><code class="lang-dart">
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MaterialApp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StatefulWidget</span>
+</span></code></pre>
+<p>&#x53C2;&#x6570;</p>
+<pre><code class="lang-dart"><span class="hljs-keyword">const</span> MaterialApp({
+    Key key,
+    <span class="hljs-keyword">this</span>.navigatorKey,
+    <span class="hljs-keyword">this</span>.home,
+    <span class="hljs-keyword">this</span>.routes = <span class="hljs-keyword">const</span> &lt;<span class="hljs-built_in">String</span>, WidgetBuilder&gt;{},
+    <span class="hljs-keyword">this</span>.initialRoute,
+    <span class="hljs-keyword">this</span>.onGenerateRoute,
+    <span class="hljs-keyword">this</span>.onUnknownRoute,
+    <span class="hljs-keyword">this</span>.navigatorObservers = <span class="hljs-keyword">const</span> &lt;NavigatorObserver&gt;[],
+    <span class="hljs-keyword">this</span>.builder,
+    <span class="hljs-keyword">this</span>.title = <span class="hljs-string">&apos;&apos;</span>,
+    <span class="hljs-keyword">this</span>.onGenerateTitle,
+    <span class="hljs-keyword">this</span>.color,
+    <span class="hljs-keyword">this</span>.theme,
+    <span class="hljs-keyword">this</span>.darkTheme,
+    <span class="hljs-keyword">this</span>.locale,
+    <span class="hljs-keyword">this</span>.localizationsDelegates,
+    <span class="hljs-keyword">this</span>.localeListResolutionCallback,
+    <span class="hljs-keyword">this</span>.localeResolutionCallback,
+    <span class="hljs-keyword">this</span>.supportedLocales = <span class="hljs-keyword">const</span> &lt;Locale&gt;[Locale(<span class="hljs-string">&apos;en&apos;</span>, <span class="hljs-string">&apos;US&apos;</span>)],
+    <span class="hljs-keyword">this</span>.debugShowMaterialGrid = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.showPerformanceOverlay = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.checkerboardRasterCacheImages = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.checkerboardOffscreenLayers = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.showSemanticsDebugger = <span class="hljs-keyword">false</span>,
+    <span class="hljs-keyword">this</span>.debugShowCheckedModeBanner = <span class="hljs-keyword">true</span>,
+  }) : <span class="hljs-keyword">assert</span>(routes != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(navigatorObservers != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(title != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(debugShowMaterialGrid != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(showPerformanceOverlay != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(checkerboardRasterCacheImages != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(checkerboardOffscreenLayers != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(showSemanticsDebugger != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">assert</span>(debugShowCheckedModeBanner != <span class="hljs-keyword">null</span>),
+       <span class="hljs-keyword">super</span>(key: key);
+</code></pre>
+<p>&#x8FD4;&#x56DE;</p>
+<pre><code class="lang-dart"><span class="hljs-meta">@override</span>
+  Widget build(BuildContext context) {
+    Widget result = WidgetsApp(
+      key: GlobalObjectKey(<span class="hljs-keyword">this</span>),
+      navigatorKey: widget.navigatorKey,
+      navigatorObservers: _navigatorObservers,
+        pageRouteBuilder: &lt;T&gt;(RouteSettings settings, WidgetBuilder builder) =&gt;
+            MaterialPageRoute&lt;T&gt;(settings: settings, builder: builder),
+      home: widget.home,
+      routes: widget.routes,
+      initialRoute: widget.initialRoute,
+      onGenerateRoute: widget.onGenerateRoute,
+      onUnknownRoute: widget.onUnknownRoute,
+      builder: (BuildContext context, Widget child) {
+        <span class="hljs-comment">// Use a light theme, dark theme, or fallback theme.</span>
+        ThemeData theme;
+        <span class="hljs-keyword">final</span> ui.Brightness platformBrightness = MediaQuery.platformBrightnessOf(context);
+        <span class="hljs-keyword">if</span> (platformBrightness == ui.Brightness.dark &amp;&amp; widget.darkTheme != <span class="hljs-keyword">null</span>) {
+          theme = widget.darkTheme;
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (widget.theme != <span class="hljs-keyword">null</span>) {
+          theme = widget.theme;
+        } <span class="hljs-keyword">else</span> {
+          theme = ThemeData.fallback();
+        }
+
+        <span class="hljs-keyword">return</span> AnimatedTheme(
+          data: theme,
+          isMaterialAppTheme: <span class="hljs-keyword">true</span>,
+          child: widget.builder != <span class="hljs-keyword">null</span>
+              ? Builder(
+                  builder: (BuildContext context) {
+                    <span class="hljs-comment">// Why are we surrounding a builder with a builder?</span>
+                    <span class="hljs-comment">//</span>
+                    <span class="hljs-comment">// The widget.builder may contain code that invokes</span>
+                    <span class="hljs-comment">// Theme.of(), which should return the theme we selected</span>
+                    <span class="hljs-comment">// above in AnimatedTheme. However, if we invoke</span>
+                    <span class="hljs-comment">// widget.builder() directly as the child of AnimatedTheme</span>
+                    <span class="hljs-comment">// then there is no Context separating them, and the</span>
+                    <span class="hljs-comment">// widget.builder() will not find the theme. Therefore, we</span>
+                    <span class="hljs-comment">// surround widget.builder with yet another builder so that</span>
+                    <span class="hljs-comment">// a context separates them and Theme.of() correctly</span>
+                    <span class="hljs-comment">// resolves to the theme we passed to AnimatedTheme.</span>
+                    <span class="hljs-keyword">return</span> widget.builder(context, child);
+                  },
+                )
+              : child,
+        );
+      },
+      title: widget.title,
+      onGenerateTitle: widget.onGenerateTitle,
+      textStyle: _errorTextStyle,
+      <span class="hljs-comment">// The color property is always pulled from the light theme, even if dark</span>
+      <span class="hljs-comment">// mode is activated. This was done to simplify the technical details</span>
+      <span class="hljs-comment">// of switching themes and it was deemed acceptable because this color</span>
+      <span class="hljs-comment">// property is only used on old Android OSes to color the app bar in</span>
+      <span class="hljs-comment">// Android&apos;s switcher UI.</span>
+      <span class="hljs-comment">//</span>
+      <span class="hljs-comment">// blue is the primary color of the default theme</span>
+      color: widget.color ?? widget.theme?.primaryColor ?? Colors.blue,
+      locale: widget.locale,
+      localizationsDelegates: _localizationsDelegates,
+      localeResolutionCallback: widget.localeResolutionCallback,
+      localeListResolutionCallback: widget.localeListResolutionCallback,
+      supportedLocales: widget.supportedLocales,
+      showPerformanceOverlay: widget.showPerformanceOverlay,
+      checkerboardRasterCacheImages: widget.checkerboardRasterCacheImages,
+      checkerboardOffscreenLayers: widget.checkerboardOffscreenLayers,
+      showSemanticsDebugger: widget.showSemanticsDebugger,
+      debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
+      inspectorSelectButtonBuilder: (BuildContext context, VoidCallback onPressed) {
+        <span class="hljs-keyword">return</span> FloatingActionButton(
+          child: <span class="hljs-keyword">const</span> Icon(Icons.search),
+          onPressed: onPressed,
+          mini: <span class="hljs-keyword">true</span>,
+        );
+      },
+    );
+
+    <span class="hljs-keyword">assert</span>(() {
+      <span class="hljs-keyword">if</span> (widget.debugShowMaterialGrid) {
+        result = GridPaper(
+          color: <span class="hljs-keyword">const</span> Color(<span class="hljs-number">0xE0F9BBE0</span>),
+          interval: <span class="hljs-number">8.0</span>,
+          divisions: <span class="hljs-number">2</span>,
+          subdivisions: <span class="hljs-number">1</span>,
+          child: result,
+        );
+      }
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    }());
+
+    <span class="hljs-keyword">return</span> ScrollConfiguration(
+      behavior: _MaterialScrollBehavior(),
+      child: result,
+    );
+  }
+</code></pre>
+<p>&#x5173;&#x8054;</p>
+<p><a href="ScrollConfiguration.html">ScrollConfiguration</a></p>
+<p><a href="WidgetsApp.html">WidgetsApp</a></p>
+<p><a href="GridPaper.html">GridPaper</a></p>
+<p><a href="AnimatedTheme.html">AnimatedTheme</a></p>
+<p>GlowingOverscrollIndicator</p>
+
                                 
                                 </section>
                             
@@ -886,12 +1033,12 @@
 
             
                 
-                <a href="theme.html" class="navigation navigation-prev " aria-label="Previous page: ios主题和android主题">
+                <a href="helloworld.html" class="navigation navigation-prev " aria-label="Previous page: helloworld">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ListView.html" class="navigation navigation-next " aria-label="Next page: ListView列表">
+                <a href="basic_widget.html" class="navigation navigation-next " aria-label="Next page: 基础部件">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -902,7 +1049,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"路由","level":"3.5","depth":1,"next":{"title":"ListView列表","level":"3.6","depth":1,"path":"md/ListView.md","ref":"./md/ListView.md","articles":[]},"previous":{"title":"ios主题和android主题","level":"3.4","depth":1,"path":"md/theme.md","ref":"./md/theme.md","articles":[]},"dir":"neutral"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/router.md","mtime":"2019-04-11T06:27:11.890Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MaterialApp","level":"2.1","depth":1,"next":{"title":"基础部件","level":"3.1","depth":1,"path":"md/basic_widget.md","ref":"./md/basic_widget.md","articles":[]},"previous":{"title":"helloworld","level":"1.3","depth":1,"path":"md/helloworld.md","ref":"./md/helloworld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/MaterialApp.md","mtime":"2019-04-25T07:23:31.918Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-25T08:44:56.979Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
