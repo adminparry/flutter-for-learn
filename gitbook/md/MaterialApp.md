@@ -1,12 +1,38 @@
 # MaterialApp
 
-继承性
+MaterialApp是根部件
+
+主要的功能用于设置路由表 和设置任务管理窗口界面所看到应用名字
+
+Creates a MaterialApp.
+
+## 继承
 ``` dart
 
 class MaterialApp extends StatefulWidget
 ```
+## demo
+``` dart
 
-参数
+class JiZhang extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        <!-- 主题颜色 -->
+        primarySwatch: Colors.yellow,
+        <!--  -->
+        colorScheme: ColorS
+      ),
+      home: Scaffold(
+
+      ),
+    );
+  }
+}
+```
+## 构造
 
 ``` dart
 const MaterialApp({
@@ -47,107 +73,7 @@ const MaterialApp({
        super(key: key);
 ```
 
-返回
-
-``` dart
-@override
-  Widget build(BuildContext context) {
-    Widget result = WidgetsApp(
-      key: GlobalObjectKey(this),
-      navigatorKey: widget.navigatorKey,
-      navigatorObservers: _navigatorObservers,
-        pageRouteBuilder: <T>(RouteSettings settings, WidgetBuilder builder) =>
-            MaterialPageRoute<T>(settings: settings, builder: builder),
-      home: widget.home,
-      routes: widget.routes,
-      initialRoute: widget.initialRoute,
-      onGenerateRoute: widget.onGenerateRoute,
-      onUnknownRoute: widget.onUnknownRoute,
-      builder: (BuildContext context, Widget child) {
-        // Use a light theme, dark theme, or fallback theme.
-        ThemeData theme;
-        final ui.Brightness platformBrightness = MediaQuery.platformBrightnessOf(context);
-        if (platformBrightness == ui.Brightness.dark && widget.darkTheme != null) {
-          theme = widget.darkTheme;
-        } else if (widget.theme != null) {
-          theme = widget.theme;
-        } else {
-          theme = ThemeData.fallback();
-        }
-
-        return AnimatedTheme(
-          data: theme,
-          isMaterialAppTheme: true,
-          child: widget.builder != null
-              ? Builder(
-                  builder: (BuildContext context) {
-                    // Why are we surrounding a builder with a builder?
-                    //
-                    // The widget.builder may contain code that invokes
-                    // Theme.of(), which should return the theme we selected
-                    // above in AnimatedTheme. However, if we invoke
-                    // widget.builder() directly as the child of AnimatedTheme
-                    // then there is no Context separating them, and the
-                    // widget.builder() will not find the theme. Therefore, we
-                    // surround widget.builder with yet another builder so that
-                    // a context separates them and Theme.of() correctly
-                    // resolves to the theme we passed to AnimatedTheme.
-                    return widget.builder(context, child);
-                  },
-                )
-              : child,
-        );
-      },
-      title: widget.title,
-      onGenerateTitle: widget.onGenerateTitle,
-      textStyle: _errorTextStyle,
-      // The color property is always pulled from the light theme, even if dark
-      // mode is activated. This was done to simplify the technical details
-      // of switching themes and it was deemed acceptable because this color
-      // property is only used on old Android OSes to color the app bar in
-      // Android's switcher UI.
-      //
-      // blue is the primary color of the default theme
-      color: widget.color ?? widget.theme?.primaryColor ?? Colors.blue,
-      locale: widget.locale,
-      localizationsDelegates: _localizationsDelegates,
-      localeResolutionCallback: widget.localeResolutionCallback,
-      localeListResolutionCallback: widget.localeListResolutionCallback,
-      supportedLocales: widget.supportedLocales,
-      showPerformanceOverlay: widget.showPerformanceOverlay,
-      checkerboardRasterCacheImages: widget.checkerboardRasterCacheImages,
-      checkerboardOffscreenLayers: widget.checkerboardOffscreenLayers,
-      showSemanticsDebugger: widget.showSemanticsDebugger,
-      debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
-      inspectorSelectButtonBuilder: (BuildContext context, VoidCallback onPressed) {
-        return FloatingActionButton(
-          child: const Icon(Icons.search),
-          onPressed: onPressed,
-          mini: true,
-        );
-      },
-    );
-
-    assert(() {
-      if (widget.debugShowMaterialGrid) {
-        result = GridPaper(
-          color: const Color(0xE0F9BBE0),
-          interval: 8.0,
-          divisions: 2,
-          subdivisions: 1,
-          child: result,
-        );
-      }
-      return true;
-    }());
-
-    return ScrollConfiguration(
-      behavior: _MaterialScrollBehavior(),
-      child: result,
-    );
-  }
-```
-关联
+## 关联
 
 [ScrollConfiguration](./ScrollConfiguration.html)
 
@@ -157,4 +83,106 @@ const MaterialApp({
 
 [AnimatedTheme](./AnimatedTheme.html)
 
-GlowingOverscrollIndicator
+[GlowingOverscrollIndicator](./GlowingOverscrollIndicator.html)
+
+[FloatingActionButton](./FloatingActionButton.html)
+
+## 参数
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>navigatorKey（导航键）</td>
+<td>GlobalKey&lt;NavigatorState&gt;</td>
+</tr>
+<tr>
+<td>home（主页）</td>
+<td>Widget</td>
+</tr>
+<tr>
+<td>routes（路由）</td>
+<td>Map&lt;String, WidgetBuilder&gt;</td>
+</tr>
+<tr>
+<td>initialRoute（初始路由）</td>
+<td>String</td>
+</tr>
+<tr>
+<td>onGenerateRoute（生成路由）</td>
+<td>RouteFactory</td>
+</tr>
+<tr>
+<td>onUnknownRoute（未知路由）</td>
+<td>RouteFactory</td>
+</tr>
+<tr>
+<td>navigatorObservers（导航观察器）</td>
+<td>List&lt;NavigatorObserver&gt;</td>
+</tr>
+<tr>
+<td>builder（建造者）</td>
+<td>TransitionBuilder</td>
+</tr>
+<tr>
+<td>title（任务管理窗口界面所看到应用名字）</td>
+<td>String</td>
+</tr>
+<tr>
+<td>onGenerateTitle（生成标题）</td>
+<td>GenerateAppTitle</td>
+</tr>
+<tr>
+<td>color（颜色）</td>
+<td>Color</td>
+</tr>
+<tr>
+<td>theme（主题）</td>
+<td>ThemeData</td>
+</tr>
+<tr>
+<td>locale(地点)</td>
+<td>Locale</td>
+</tr>
+<tr>
+<td>localizationsDelegates（本地化委托）</td>
+<td>Iterable&lt;LocalizationsDelegate&lt;dynamic&gt;&gt;</td>
+</tr>
+<tr>
+<td>localeResolutionCallback（区域分辨回调）</td>
+<td>LocaleResolutionCallback</td>
+</tr>
+<tr>
+<td>supportedLocales（支持区域）</td>
+<td>Iterable&lt;Locale&gt;</td>
+</tr>
+<tr>
+<td>debugShowMaterialGrid（调试显示材质网格）</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>showPerformanceOverlay（显示性能叠加）</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>checkerboardRasterCacheImages（棋盘格光栅缓存图像）</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>checkerboardOffscreenLayers（棋盘格层）</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>showSemanticsDebugger（显示语义调试器）</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>debugShowCheckedModeBanner（调试显示检查模式横幅）</td>
+<td>bool</td>
+</tr>
+</tbody>
+</table>

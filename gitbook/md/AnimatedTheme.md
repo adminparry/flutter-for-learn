@@ -1,5 +1,7 @@
 # AnimatedTheme
 
+创建动画主题。
+
 继承
 ``` dart
 class AnimatedTheme extends ImplicitlyAnimatedWidget

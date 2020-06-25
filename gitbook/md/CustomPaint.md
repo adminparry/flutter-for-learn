@@ -1,5 +1,7 @@
 # CustomPaint
 
+创建委托其绘制的小部件。
+
 继承
 ``` dart
 class CustomPaint extends SingleChildRenderObjectWidget 

@@ -1,4 +1,6 @@
-# WidgetsApp.md
+# WidgetsApp
+
+创建一个小部件，该小部件包装了许多常见的小部件
 
 继承
 ``` dart

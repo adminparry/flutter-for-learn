@@ -24,3 +24,13 @@ flutter doctor
 
 一切准备就续之后就可以点击运行了 在这里推荐使用外接数据线的形式进行调试 因为模拟器是不准确的 而且开发的形式也是所见即所得的热更新模式
 
+## doctor
+
+Checking Android licenses is taking an unexpectedly long time
+
+``` bash
+flutter doctor --android-licenses
+```
+## intellij 格式化代码快捷键
+
+

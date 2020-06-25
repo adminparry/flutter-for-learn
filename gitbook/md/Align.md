@@ -1,9 +1,13 @@
 # Align
 
+创建对齐小部件。
+
 继承
 ``` dart
 class Align extends SingleChildRenderObjectWidget
 ```
+默认为上下左右中心对齐方式
+
 构造
 ``` dart
 const Align({
@@ -19,6 +23,7 @@ const Align({
 ```
 关联
 
+实际上Center 就是Align
 ```
 class Center extends Align {
   /// Creates a widget that centers its child.
@@ -26,3 +31,4 @@ class Center extends Align {
     : super(key: key, widthFactor: widthFactor, heightFactor: heightFactor, child: child);
 }
 ```
+[AlignmentGeometry](./AlignmentGeometry.html)

@@ -1,8 +1,14 @@
 # SizedBox
 
+
+创建固定大小的框。
+
+##### 继承
+
 ``` dart
 class SizedBox extends SingleChildRenderObjectWidget
 ```
+##### 构造
 
 ``` dart
 const SizedBox({ Key key, this.width, this.height, Widget child })
